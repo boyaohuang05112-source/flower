@@ -1,0 +1,134 @@
+.finale-screen {
+  z-index: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  overflow-y: auto;
+}
+
+.finale-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.bouquet-stage {
+  width: 220px;
+  height: 280px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.bouquet-stage svg { width: 100%; height: 100%; }
+
+.bouquet-flower {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-soft), transform 0.8s var(--ease-soft);
+}
+
+.bouquet-flower.is-placed {
+  opacity: 1;
+}
+
+.finale-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--outline);
+}
+
+.finale-message {
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--outline);
+  margin-bottom: 1.5rem;
+}
+
+.envelope.is-falling {
+  animation: envelope-fall 2s var(--ease-soft) both;
+}
+
+.finale-monologue {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--outline);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.finale-monologue.is-visible { opacity: 1; }
+
+.finale-monologue p { margin: 0 0 0.3rem; }
+
+.bouquet-assemble {
+  position: absolute;
+  inset: 0;
+}
+
+.bouquet-assemble .bouquet-flower {
+  transform: translate(-50%, -50%);
+}
+
+.envelope {
+  width: 120px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  cursor: pointer;
+  animation: envelope-fall 1.2s var(--ease-soft) both;
+  animation-delay: 0.5s;
+}
+
+@keyframes envelope-fall {
+  from { transform: translateY(-120px) rotate(-8deg); opacity: 0; }
+  to { transform: translateY(0) rotate(0); opacity: 1; }
+}
+
+.envelope svg { width: 100%; height: 100%; }
+
+.letter-panel {
+  background: var(--white-soft);
+  border: 2px solid var(--brown);
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 var(--sage);
+  text-align: left;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.letter-panel.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.letter-panel p {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.85;
+  margin-bottom: 0.7rem;
+}
+
+.letter-signoff {
+  margin-top: 1.2rem;
+  font-weight: 600;
+}
+
+.finale-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}

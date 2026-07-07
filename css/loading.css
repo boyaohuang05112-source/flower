@@ -1,0 +1,95 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ivory);
+  transition: opacity 1.1s var(--ease-soft), visibility 1.1s;
+}
+
+.loading-screen.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.1s var(--ease-soft), visibility 1.1s;
+}
+
+.loading-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.flower-stage {
+  width: 120px;
+  height: 170px;
+}
+
+.flower-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+#flower-growth {
+  --seed-op: 1;
+  --stem-h: 0;
+  --leaf-l: 0;
+  --leaf-r: 0;
+  --bud: 0;
+  --bloom: 0;
+  --petal-0: 0; --petal-1: 0; --petal-2: 0; --petal-3: 0;
+  --petal-4: 0; --petal-5: 0; --petal-6: 0; --petal-7: 0;
+  --petal-8: 0; --petal-9: 0; --petal-10: 0; --petal-11: 0;
+}
+
+.part-seed { opacity: var(--seed-op); }
+.part-stem { transform: scaleY(var(--stem-h)); transform-origin: 40px 132px; }
+.part-leaf-l { opacity: var(--leaf-l); transform: scale(var(--leaf-l)); transform-origin: 40px 88px; }
+.part-leaf-r { opacity: var(--leaf-r); transform: scale(var(--leaf-r)); transform-origin: 40px 74px; }
+.part-bud { opacity: var(--bud); transform: scale(calc(0.15 + var(--bud) * 0.85)); transform-origin: 40px 24px; }
+.part-center { opacity: var(--bloom); transform: scale(calc(0.1 + var(--bloom) * 0.9)); transform-origin: 40px 22px; }
+
+.part-petal {
+  opacity: var(--po);
+  transform: rotate(var(--prot)) scale(calc(0.05 + var(--po) * 0.95));
+  transform-origin: 40px 22px;
+}
+
+.part-petal-0  { --po: var(--petal-0);  --prot: 0deg; }
+.part-petal-1  { --po: var(--petal-1);  --prot: 30deg; }
+.part-petal-2  { --po: var(--petal-2);  --prot: 60deg; }
+.part-petal-3  { --po: var(--petal-3);  --prot: 90deg; }
+.part-petal-4  { --po: var(--petal-4);  --prot: 120deg; }
+.part-petal-5  { --po: var(--petal-5);  --prot: 150deg; }
+.part-petal-6  { --po: var(--petal-6);  --prot: 180deg; }
+.part-petal-7  { --po: var(--petal-7);  --prot: 210deg; }
+.part-petal-8  { --po: var(--petal-8);  --prot: 240deg; }
+.part-petal-9  { --po: var(--petal-9);  --prot: 270deg; }
+.part-petal-10 { --po: var(--petal-10); --prot: 300deg; }
+.part-petal-11 { --po: var(--petal-11); --prot: 330deg; }
+
+.wave-line {
+  width: 88px;
+  height: 12px;
+}
+
+.wave-line path {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.loading-percent {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: var(--outline-soft);
+}

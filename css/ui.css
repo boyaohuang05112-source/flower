@@ -1,0 +1,509 @@
+/* ===== Modals, Cards, Bag ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(245, 240, 230, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--ease-soft), visibility 0.5s;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.botanical-card {
+  background: rgba(250, 247, 242, 0.92);
+  border: 1.5px solid rgba(168, 181, 160, 0.45);
+  border-radius: 16px;
+  padding: 1.8rem;
+  max-width: 380px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(107, 99, 88, 0.1);
+  backdrop-filter: blur(6px);
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.5s var(--ease-soft);
+}
+
+.modal-overlay.is-open .botanical-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-overlay.is-act4-reveal .botanical-card {
+  animation: act4-sunflower-card-in 1.2s var(--ease-soft) both;
+}
+
+@keyframes act4-sunflower-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.84);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card-flower-art {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+}
+
+.card-flower-art svg { width: 100%; height: 100%; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.card-tagline {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  color: var(--outline-soft);
+  margin-bottom: 1rem;
+}
+
+.btn-pill.is-muted {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.sunflower-progress {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(250, 247, 242, 0.9);
+  border: 1.5px solid rgba(240, 200, 72, 0.45);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--outline);
+  box-shadow: 0 2px 12px rgba(107, 99, 88, 0.08);
+  opacity: 1;
+  transition: transform 0.4s;
+  pointer-events: none;
+}
+
+.sunflower-progress.is-bump {
+  transform: translateX(-50%) scale(1.06);
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--outline);
+  margin-bottom: 1rem;
+}
+
+.card-meta {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  margin-bottom: 1.2rem;
+}
+
+.card-meta dt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--moss);
+}
+
+.card-meta dd { margin-left: 0; color: var(--outline-soft); }
+
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.botanical-card.round-card {
+  border-radius: 50%;
+  width: min(340px, 88vw);
+  aspect-ratio: 1;
+  max-width: 340px;
+  padding: 2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.round-card-inner {
+  text-align: center;
+  width: 100%;
+}
+
+.card-meaning {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--outline-soft);
+  margin-bottom: 0.5rem;
+}
+
+.card-inner-voice {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--outline);
+  margin: 0 0 1rem;
+}
+
+.card-voice-divider {
+  border: none;
+  border-top: 1px solid rgba(107, 99, 88, 0.22);
+  margin: 0.9rem 0 0.85rem;
+}
+
+.card-inner-voice .voice-body {
+  margin: 0.15rem 0 0;
+  font-style: italic;
+  line-height: 1.9;
+}
+
+.card-inner-voice .voice-body .card-line {
+  display: block;
+}
+
+.card-inner-voice p { margin: 0; }
+
+.sunflower-card {
+  text-align: center;
+}
+
+.sunflower-card .card-flower-art {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sunflower-card .card-desc,
+.sunflower-card .card-desc-lines {
+  text-align: center;
+  align-items: center;
+}
+
+.sunflower-card .card-meaning-block {
+  text-align: center;
+}
+
+.sunflower-card .card-meaning-lines {
+  text-align: center;
+  align-items: center;
+}
+
+.sunflower-card .card-actions {
+  justify-content: center;
+}
+
+.sunflower-card .card-title {
+  margin-bottom: 0.6rem;
+}
+
+.card-inner-voice .voice-label {
+  font-weight: 600;
+  color: var(--brown);
+  margin-bottom: 0.2rem;
+}
+
+.plant-card .card-meta {
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.plant-card {
+  text-align: center;
+}
+
+.plant-card .card-flower-art {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.plant-card .card-meta dt,
+.plant-card .card-meta dd {
+  text-align: center;
+}
+
+.plant-card .card-desc,
+.plant-card .card-desc-lines {
+  text-align: center;
+  align-items: center;
+}
+
+.plant-card .card-inner-voice,
+.plant-card .card-inner-voice .voice-body {
+  text-align: center;
+}
+
+.plant-card .btn-pill {
+  display: inline-block;
+}
+
+.card-meaning-block {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--outline-soft);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.card-meaning-block span {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--moss);
+  font-style: normal;
+  margin-bottom: 0.25rem;
+}
+
+.card-section-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--moss);
+  text-align: center;
+  margin: 0.5rem 0 0.35rem;
+}
+
+.card-desc-lines,
+.card-meaning-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.card-desc-lines .card-line,
+.card-meaning-lines .card-line {
+  display: block;
+}
+
+.card-meaning-block .card-meaning-lines {
+  font-style: italic;
+}
+
+.card-label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--brown);
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.intro-note {
+  max-width: 420px;
+  padding: 2rem 2.2rem;
+  background: rgba(250, 247, 242, 0.94);
+  border: 1.5px solid rgba(154, 123, 90, 0.35);
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(107, 99, 88, 0.08);
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  font-style: italic;
+  color: var(--outline);
+}
+
+.intro-note p { margin-bottom: 0.6rem; }
+.intro-note p:last-child { margin-bottom: 0; }
+
+.find-guide-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--outline);
+}
+
+.find-guide-steps {
+  margin: 0 0 1rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--outline);
+}
+
+.find-guide-steps li { margin-bottom: 0.35rem; }
+
+.find-guide-note {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--outline-soft);
+  text-align: center;
+}
+
+/* Flower bag */
+.flower-bag {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 300;
+  cursor: pointer;
+}
+
+.bag-icon {
+  width: 56px;
+  height: 56px;
+  transition: transform 0.4s var(--ease-gentle);
+}
+
+.flower-bag:hover .bag-icon,
+.flower-bag.is-bouncing .bag-icon {
+  transform: scale(1.1);
+}
+
+.flower-bag.is-bouncing .bag-icon {
+  animation: bag-bounce 0.6s var(--ease-gentle);
+}
+
+@keyframes bag-bounce {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.15) rotate(-3deg); }
+  60% { transform: scale(1.08) rotate(2deg); }
+}
+
+.bag-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--dusty-pink);
+  border: 2px solid var(--outline-soft);
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.flower-bag.has-flowers .bag-count {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bag-panel {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  right: 0;
+  width: 260px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--white-soft);
+  border: 2px solid var(--sage);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 28px rgba(61, 74, 56, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.35s, transform 0.35s, visibility 0.35s;
+}
+
+.flower-bag.is-expanded .bag-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.bag-panel-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sage);
+}
+
+.bag-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  font-size: 0.82rem;
+}
+
+.bag-item-art { width: 32px; height: 32px; flex-shrink: 0; }
+.bag-item-art svg { width: 100%; height: 100%; }
+
+.bag-empty {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--outline-soft);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Scene transition */
+.scene-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.scene-transition.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.transition-words {
+  position: absolute;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--moss);
+  opacity: 0.25;
+  animation: word-slide 1.6s var(--ease-soft) forwards;
+}
+
+@keyframes word-slide {
+  0% { transform: translateX(-30vw); opacity: 0; }
+  20% { opacity: 0.35; }
+  80% { opacity: 0.35; }
+  100% { transform: translateX(30vw); opacity: 0; }
+}
