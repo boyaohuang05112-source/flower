@@ -2,6 +2,9 @@
   'use strict';
 
   function showFinale() {
+    const act = window.ACTS?.[window.CURRENT_ACT];
+    if (act?.id === 'park-street') return;
+
     const forest = document.getElementById('forest-app');
     const finale = document.getElementById('finale');
     if (!finale) return;

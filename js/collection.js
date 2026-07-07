@@ -75,7 +75,7 @@
       if (willCompleteAct) {
         const delay = act?.completeDelayMs ?? (act?.endSequence ? 2000 : 3200);
         setTimeout(() => window.ForestActs?.completeAct(), delay);
-      } else if (Collection.isComplete()) {
+      } else if (Collection.isComplete() && act?.id !== 'park-street') {
         setTimeout(() => document.dispatchEvent(new CustomEvent('allFlowersCollected')), 2000);
       }
     });
