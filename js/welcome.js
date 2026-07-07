@@ -175,7 +175,6 @@
 
   function enterForest() {
     if (isEntering) return;
-    window.Music?.play?.();
     isEntering = true;
     floaters = [];
 
